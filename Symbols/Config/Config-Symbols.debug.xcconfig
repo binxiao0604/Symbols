@@ -1,0 +1,15 @@
+
+//在这个工程中等价于路径  MACHO_PATH = /Users/binxiao/Library/Developer/Xcode/DerivedData/Symbols-cfpllgmnnkaopqdihukqvqiqejke/Build/Products/Debug/Symbols
+
+// BUILD_DIR build路径 *为可执行文件名称，这里为了适配写为*通配符
+MACHO_PATH=${BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/*
+//# CMD = 运行的命令
+//# CMD_FLAG = 运行的命令参数
+//# TTY = 终端
+CMD = nm
+// -p: 不排序
+// -a: 显示所有符号，包含调试符号
+CMD_FLAG = -pa ${MACHO_PATH}
+TTY = /dev/ttys000
+//-Xlinker 虽然执行的ld，但是命令传给连接器
+OTHER_LDFLAGS=-Xlinker -S
