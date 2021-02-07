@@ -9,6 +9,6 @@
 
 #import <Foundation/Foundation.h>
 
-void weak_import_function(void) {
-    NSLog(@"weak_import_function");
-}
+//void weak_import_function(void) {
+//    NSLog(@"weak_import_function");
+//}

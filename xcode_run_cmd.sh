@@ -15,7 +15,7 @@ RunCommand() {
   fi
   #与$*相同。但是使用时加引号，并在引号中返回每个参数。"$@" 会将各个参数分开，以"$1" "$2" … "$n" 的形式输出所有参数
   if [[ -n "$TTY" ]]; then
-      echo `$@ &>$TTY`
+        eval "$@" &>$TTY
   else
       "$@"
   fi
@@ -38,16 +38,15 @@ EchoError() {
 }
 
 RunCMDToTTY() {
+    # CMD = 运行到命令
+    # TTY = 终端
     if [[ ! -e "$TTY" ]]; then
         EchoError "=========================================="
         EchoError "ERROR: Not Config tty to output."
         exit -1
     fi
-    # CMD = 运行的命令
-    # CMD_FLAG = 运行的命令参数
-    # TTY = 终端
     if [[ -n "$CMD" ]]; then
-        RunCommand "$CMD" ${CMD_FLAG}
+        RunCommand $CMD
     else
         EchoError "=========================================="
         EchoError "ERROR:Failed to run CMD. THE CMD must not null"

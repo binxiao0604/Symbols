@@ -8,6 +8,7 @@
 #import "WeakSymbol.h"
 #import <Foundation/Foundation.h>
 
+//全局符号
 void weak_function(void) {
     NSLog(@"weak_function");
 }

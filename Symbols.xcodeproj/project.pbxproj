@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1332A8BB25CF0A9000AF13F9 /* OCObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 1332A8BA25CF0A9000AF13F9 /* OCObject.m */; };
+		1332A8BD25CF0F9600AF13F9 /* WeakSymbol.m in Sources */ = {isa = PBXBuildFile; fileRef = 13ADAF6F25BC4123009381F2 /* WeakSymbol.m */; };
+		1332A8BF25CF12A500AF13F9 /* Weak_importSymbol.m in Sources */ = {isa = PBXBuildFile; fileRef = 13ADAF6B25BC410B009381F2 /* Weak_importSymbol.m */; };
 		13ADAF5725BC32DE009381F2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13ADAF5625BC32DE009381F2 /* main.m */; };
-		13ADAF6825BC40EA009381F2 /* VisibilitySymbol.m in Sources */ = {isa = PBXBuildFile; fileRef = 13ADAF6725BC40EA009381F2 /* VisibilitySymbol.m */; };
-		13ADAF6C25BC410B009381F2 /* Weak_importSymbol.m in Sources */ = {isa = PBXBuildFile; fileRef = 13ADAF6B25BC410B009381F2 /* Weak_importSymbol.m */; };
-		13ADAF7025BC4123009381F2 /* WeakSymbol.m in Sources */ = {isa = PBXBuildFile; fileRef = 13ADAF6F25BC4123009381F2 /* WeakSymbol.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,6 +26,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1332A8B925CF0A9000AF13F9 /* OCObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OCObject.h; sourceTree = "<group>"; };
+		1332A8BA25CF0A9000AF13F9 /* OCObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OCObject.m; sourceTree = "<group>"; };
+		1332A8C125D03C8E00AF13F9 /* Symbols-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Symbols-Bridging-Header.h"; sourceTree = "<group>"; };
+		1332A8C225D03C8E00AF13F9 /* SwiftSymbol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftSymbol.swift; sourceTree = "<group>"; };
 		13ADAF5325BC32DE009381F2 /* Symbols */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Symbols; sourceTree = BUILT_PRODUCTS_DIR; };
 		13ADAF5625BC32DE009381F2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		13ADAF6225BC3573009381F2 /* Config-Symbols.debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Config-Symbols.debug.xcconfig"; sourceTree = "<group>"; };
@@ -35,6 +39,7 @@
 		13ADAF6B25BC410B009381F2 /* Weak_importSymbol.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Weak_importSymbol.m; sourceTree = "<group>"; };
 		13ADAF6E25BC4123009381F2 /* WeakSymbol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeakSymbol.h; sourceTree = "<group>"; };
 		13ADAF6F25BC4123009381F2 /* WeakSymbol.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeakSymbol.m; sourceTree = "<group>"; };
+		13ADAF7925BC5C05009381F2 /* xcode_run_cmd.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = xcode_run_cmd.sh; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +72,7 @@
 		13ADAF5525BC32DE009381F2 /* Symbols */ = {
 			isa = PBXGroup;
 			children = (
+				13ADAF7825BC5BFB009381F2 /* shell */,
 				13ADAF6125BC354B009381F2 /* Config */,
 				13ADAF5625BC32DE009381F2 /* main.m */,
 				13ADAF6625BC40EA009381F2 /* VisibilitySymbol.h */,
@@ -75,6 +81,10 @@
 				13ADAF6B25BC410B009381F2 /* Weak_importSymbol.m */,
 				13ADAF6E25BC4123009381F2 /* WeakSymbol.h */,
 				13ADAF6F25BC4123009381F2 /* WeakSymbol.m */,
+				1332A8C225D03C8E00AF13F9 /* SwiftSymbol.swift */,
+				1332A8B925CF0A9000AF13F9 /* OCObject.h */,
+				1332A8BA25CF0A9000AF13F9 /* OCObject.m */,
+				1332A8C125D03C8E00AF13F9 /* Symbols-Bridging-Header.h */,
 			);
 			path = Symbols;
 			sourceTree = "<group>";
@@ -85,6 +95,14 @@
 				13ADAF6225BC3573009381F2 /* Config-Symbols.debug.xcconfig */,
 			);
 			path = Config;
+			sourceTree = "<group>";
+		};
+		13ADAF7825BC5BFB009381F2 /* shell */ = {
+			isa = PBXGroup;
+			children = (
+				13ADAF7925BC5C05009381F2 /* xcode_run_cmd.sh */,
+			);
+			path = shell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -118,6 +136,7 @@
 				TargetAttributes = {
 					13ADAF5225BC32DE009381F2 = {
 						CreatedOnToolsVersion = 12.2;
+						LastSwiftMigration = 1220;
 					};
 				};
 			};
@@ -164,10 +183,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				13ADAF6C25BC410B009381F2 /* Weak_importSymbol.m in Sources */,
-				13ADAF7025BC4123009381F2 /* WeakSymbol.m in Sources */,
+				1332A8BF25CF12A500AF13F9 /* Weak_importSymbol.m in Sources */,
+				1332A8BD25CF0F9600AF13F9 /* WeakSymbol.m in Sources */,
+				1332A8BB25CF0A9000AF13F9 /* OCObject.m in Sources */,
 				13ADAF5725BC32DE009381F2 /* main.m in Sources */,
-				13ADAF6825BC40EA009381F2 /* VisibilitySymbol.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,20 +308,39 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 13ADAF6225BC3573009381F2 /* Config-Symbols.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEAD_CODE_STRIPPING = NO;
 				DEPLOYMENT_POSTPROCESSING = NO;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_STYLE = all;
+				SWIFT_OBJC_BRIDGING_HEADER = "Symbols/Symbols-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
 		13ADAF5C25BC32DE009381F2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEAD_CODE_STRIPPING = NO;
 				DEPLOYMENT_POSTPROCESSING = NO;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_STYLE = all;
+				SWIFT_OBJC_BRIDGING_HEADER = "Symbols/Symbols-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};

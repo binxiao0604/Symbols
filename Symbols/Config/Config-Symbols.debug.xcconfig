@@ -2,14 +2,43 @@
 //在这个工程中等价于路径  MACHO_PATH = /Users/binxiao/Library/Developer/Xcode/DerivedData/Symbols-cfpllgmnnkaopqdihukqvqiqejke/Build/Products/Debug/Symbols
 
 // BUILD_DIR build路径 *为可执行文件名称，这里为了适配写为*通配符
-MACHO_PATH=${BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/*
-//# CMD = 运行的命令
-//# CMD_FLAG = 运行的命令参数
-//# TTY = 终端
-CMD = nm
-// -p: 不排序
-// -a: 显示所有符号，包含调试符号
-CMD_FLAG = -pa ${MACHO_PATH}
-TTY = /dev/ttys000
-//-Xlinker 虽然执行的ld，但是命令传给连接器
-OTHER_LDFLAGS=-Xlinker -S
+//MACHO_PATH=${BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/*
+
+VERBOSE_SCRIPT_LOGGING=-v
+MACHO_PATH=${BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/${PRODUCT_NAME}
+
+//**查看macho header**
+// 1.objdump --macho -private-header ${MACHO_PATH}
+// 2.otool -h ${MACHO_PATH}
+
+//查看__TEXT段
+// objdump --macho -d ${MACHO_PATH}
+
+//查看重定位符号表
+// objdump --macho -reloc test.o
+//查看符号表
+//objdump --macho --syms ${MACHO_PATH}
+//查看导出符号
+//objdump --macho --exports-trie ${MACHO_PATH}
+//查看间接符号表
+//objdump --macho --indirect-symbols ${MACHO_PATH}
+//nm好阅读的方式输出符号表
+//nm -m ${MACHO_PATH} | grep 'HOTPOT_NSLog'
+//objdump --macho --syms ${MACHO_PATH} | grep 'SwiftClassSymbol'
+CMD = objdump --macho --syms ${MACHO_PATH}
+//去除调试符号，DWARF 会放在macho DWARF段，连接后会放到符号表中。
+OTHER_LDFLAGS=$(inherited) -Xlinker -S
+OTHER_LDFLAGS=$(inherited) -Xlinker -U  -Xlinker _weak_import_function
+//重新导出
+OTHER_LDFLAGS=$(inherited) -Xlinker -alias  -Xlinker _NSLog -Xlinker HOTPOT_NSLog
+//不暴露对应符号，多个的话有对应的list设置。
+//OTHER_LDFLAGS=$(inherited) -Xlinker -unexported_symbol  -Xlinker _OBJC_CLASS_$_OCObject
+TTY = /dev/ttys003
+
+
+//CMD = ${inherited} grep
+
+////-Xlinker 虽然执行的ld，但是命令传给链接器
+//OTHER_LDFLAGS=-Xlinker -S
+
+
